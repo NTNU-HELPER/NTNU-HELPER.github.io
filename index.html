@@ -1,81 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Number - App Promotion</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #4caf50;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .email {
-            color: #4caf50;
-            text-decoration: none;
-        }
-        .email:hover {
-            text-decoration: underline;
-        }
-        .download-btn {
-            display: block;
-            width: fit-content;
-            margin: 30px auto;
-            padding: 12px 24px;
-            background-color: #4caf50;
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
-        }
-        .download-btn:hover {
-            background-color: #388e3c;
-        }
-        footer {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 30px;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess the Number - 數字猜猜猜 App</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #e0e7ff, #f3f4f6);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 80px auto;
+      padding: 40px;
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: var(--primary-dark);
+      font-weight: bold;
+    }
+
+    .download-btn {
+      display: block;
+      text-align: center;
+      margin: 2.5rem auto 0;
+      padding: 16px 32px;
+      background-color: var(--primary);
+      color: white;
+      font-size: 1.125rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .contact {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.875rem;
+      margin-top: 60px;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Guess the Number</h1>
+    <p><span class="highlight">挑戰你的直覺！</span> 這是一款簡單卻令人上癮的猜數字遊戲。</p>
+    <p>系統會隨機產生一個數字，你的任務就是在最少次數內猜中它。</p>
+    <p>每次猜測後，我們會提示「太大」或「太小」，直到你成功命中！</p>
+    <p>適合所有年齡，無論是休閒娛樂還是朋友對戰都超適合！</p>
 
-    <div class="container">
-        <h1>Guess the Number</h1>
-        <p><strong>一款簡單又上癮的猜數字遊戲！</strong></p>
-        <p>你能在最短的時間內猜出正確的數字嗎？挑戰你的邏輯思維與直覺！</p>
-        <p>每次猜測後，我們會告訴你數字是太大還是太小，直到你猜中為止。</p>
-        <p>適合所有年齡層，無論是打發時間或挑戰朋友都超好玩！</p>
-        <p><strong>開發者:</strong> 洪浩倫</p>
-        <p><strong>聯絡信箱:</strong> <a href="mailto:dillen99999999@gmail.com" class="email">dillen99999999@gmail.com</a></p>
+    <a href="#" class="download-btn">🚀 立即下載 App</a>
 
-        <a href="#" class="download-btn">立即下載 App</a>
+    <div class="contact">
+      <p>開發者：洪浩倫</p>
+      <p>聯絡信箱：<a href="mailto:dillen99999999@gmail.com">dillen99999999@gmail.com</a></p>
     </div>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 Guess the Number. All rights reserved.</p>
-    </footer>
-
+  <footer>
+    &copy; 2025 Guess the Number. All rights reserved.
+  </footer>
 </body>
 </html>
