@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商品頁面</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      gap: 40px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .product-image {
+      flex: 1;
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .product-info {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e53935;
+      margin-bottom: 20px;
+    }
+
+    .buy-button {
+      padding: 12px 24px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: fit-content;
+    }
+
+    .buy-button:hover {
+      background-color: #43a047;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product-image">
+      <img src="https://via.placeholder.com/500x500.png?text=商品圖片" alt="商品圖片" />
+    </div>
+    <div class="product-info">
+      <div class="product-title">經典紅色手提包</div>
+      <div class="product-description">
+        這款經典紅色手提包採用高品質皮革製成，設計簡約卻不失優雅，適合各種場合使用。內部多層分隔設計，讓你輕鬆整理日常用品。
+      </div>
+      <div class="price">NT$ 1,680</div>
+      <button class="buy-button">立即購買</button>
+    </div>
+  </div>
+</body>
+</html>
