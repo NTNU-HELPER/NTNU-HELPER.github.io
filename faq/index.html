@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Share the Music</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<style>
+/* style.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #1d1e22, #2c3e50);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  color: #f1c40f;
+  font-size: 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #111;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background-color: #f1c40f;
+  color: black;
+}
+
+main {
+  flex: 1;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+</style>
+<body>
+  <header><h1>Share the Music with the World</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <main>
+    <h2>Your music deserves to be heard.</h2>
+    <p>Join a global community of creators. Upload, stream, and share your tracks with music lovers around the world.</p>
+    <button class="cta-button" onclick="window.location.href='about.html'">Start Sharing</button>
+  </main>
+  <footer>&copy; 2025 ShareMusic Inc. All rights reserved.</footer>
+</body>
+</html>
