@@ -1,112 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Share the Music with the World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的 App 推廣頁</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #1d1e22, #2c3e50);
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
       color: white;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: #f1c40f;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    .container {
+      max-width: 800px;
+      margin: auto;
       padding: 40px 20px;
-    }
-
-    .hero {
-      max-width: 700px;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-
-    .cta-button {
-      padding: 14px 28px;
-      background-color: #f1c40f;
-      color: #1d1e22;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #d4ac0d;
-    }
-
-    footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #999;
     }
-
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .cta-button {
-        font-size: 0.9rem;
-      }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+    .app-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background-color: white;
+      color: #2575fc;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .screenshot {
+      margin-top: 3em;
+    }
+    .screenshot img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Share the Music with the World</h1>
-  </header>
-  <main>
-    <div class="hero">
-      <h2>Your music deserves to be heard.</h2>
-      <p>Join a global community of creators. Upload, stream, and share your tracks with music lovers around the world.</p>
-      <button class="cta-button">Start Sharing</button>
+  <div class="container">
+    <h1>歡迎使用我的 App</h1>
+    <p>探索我們的應用程式，讓生活更簡單、更有趣。支援 iOS 與 Android！</p>
+    <div class="app-buttons">
+      <a href="https://apps.apple.com/你的app" class="btn">下載 iOS 版</a>
+      <a href="https://play.google.com/store/apps/details?id=你的app" class="btn">下載 Android 版</a>
     </div>
-  </main>
-  <footer>
-    &copy; 2025 ShareMusic Inc. All rights reserved.
-  </footer>
+
+    <div class="screenshot">
+      <h2>App 截圖預覽</h2>
+      <img src="你的圖片連結.jpg" alt="App Screenshot">
+    </div>
+  </div>
 </body>
 </html>
