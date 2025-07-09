@@ -2,30 +2,67 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>放鬆心情 App</title>
+  <title>Stillnest - 放鬆心情 App</title>
   <style>
     body {
-      font-family: "Helvetica", sans-serif;
-      background: linear-gradient(to bottom, #a0cfe7, #f0f8ff);
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: linear-gradient(to top right, #a8edea, #fed6e3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      padding: 50px;
     }
+
     h1 {
-      color: #3a3a3a;
+      font-size: 2.5em;
+      color: #444;
+      margin-bottom: 10px;
     }
+
+    .quote {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .breath-circle {
+      width: 150px;
+      height: 150px;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      animation: breathe 8s infinite;
+      box-shadow: 0 0 30px rgba(255,255,255,0.6);
+    }
+
+    @keyframes breathe {
+      0%   { transform: scale(1); }
+      25%  { transform: scale(1.3); } /* inhale */
+      50%  { transform: scale(1); }   /* exhale */
+      75%  { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
     audio {
-      margin-top: 30px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Just Relax 🎵</h1>
-  <p>播放放鬆音樂，讓心情平靜下來。</p>
-  
-  <!-- 替換 src 連結為你的 mp3 位置 -->
+
+  <h1>Stillnest</h1>
+  <div class="quote">「讓心靜下來，是看見世界最美的方式。」</div>
+
+  <div class="breath-circle"></div>
+
   <audio controls autoplay loop>
     <source src="just-relax-11157(1).mp3" type="audio/mpeg">
     您的瀏覽器不支援 audio 元素。
   </audio>
+
 </body>
 </html>
