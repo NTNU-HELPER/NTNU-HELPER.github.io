@@ -1,83 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JP30ZH8QMC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JP30ZH8QMC');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的 App 推廣頁</title>
+  <meta charset="UTF-8">
+  <title>放鬆心情 App</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: white;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
+      font-family: "Helvetica", sans-serif;
+      background: linear-gradient(to bottom, #a0cfe7, #f0f8ff);
       text-align: center;
+      padding: 50px;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.3em;
+      color: #3a3a3a;
     }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 2em;
-    }
-    .app-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      background-color: white;
-      color: #2575fc;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-size: 1em;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-    }
-    .screenshot {
-      margin-top: 3em;
-    }
-    .screenshot img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    audio {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>歡迎使用我的 App</h1>
-    <p>探索我們的應用程式，讓生活更簡單、更有趣。支援 iOS 與 Android！</p>
-    <div class="app-buttons">
-      <a href="https://apps.apple.com/tw/app/guessthenumber/id6740280712?l=en-GB" class="btn">下載 iOS 版</a>
-      <a href="https://play.google.com/store/apps/details?id=appinventor.ai_dillen99999999.fwefefef&hl=zh_TW" class="btn">下載 Android 版</a>
-    </div>
-
-    <div class="screenshot">
-      <h2>App 截圖預覽</h2>
-      <img src="你的圖片連結.jpg" alt="App Screenshot">
-    </div>
-  </div>
+  <h1>Just Relax 🎵</h1>
+  <p>播放放鬆音樂，讓心情平靜下來。</p>
+  
+  <!-- 替換 src 連結為你的 mp3 位置 -->
+  <audio controls autoplay loop>
+    <source src="just-relax-11157(1).mp3" type="audio/mpeg">
+    您的瀏覽器不支援 audio 元素。
+  </audio>
 </body>
 </html>
