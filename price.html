@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Stillnest - 價格方案</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: linear-gradient(to top right, #fdfbfb, #ebedee);
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #444;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #444;
+      margin-left: 20px;
+      font-size: 1em;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .content {
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .plans {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 30px;
+    }
+
+    .plan {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 250px;
+    }
+
+    .plan h2 {
+      font-size: 1.5em;
+      color: #444;
+    }
+
+    .price {
+      font-size: 2em;
+      color: #ff5c5c;
+      margin: 10px 0;
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+      color: #666;
+      font-size: 0.95em;
+    }
+
+    .plan ul li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Stillnest</div>
+    <div class="links">
+      <a href="index.html">首頁</a>
+      <a href="price.html">價格方案</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>價格方案</h1>
+    <div class="plans">
+      <div class="plan">
+        <h2>免費方案</h2>
+        <div class="price">NT$ 0</div>
+        <ul>
+          <li>基本放鬆音樂</li>
+          <li>冥想計時器</li>
+          <li>每日一句語錄</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <h2>專業方案</h2>
+        <div class="price">NT$ 199/月</div>
+        <ul>
+          <li>解鎖全部音樂</li>
+          <li>高品質白噪音</li>
+          <li>自訂呼吸節奏</li>
+          <li>無廣告體驗</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
