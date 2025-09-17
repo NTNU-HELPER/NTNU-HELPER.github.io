@@ -1,19 +1,73 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>嵌入 Google 文件</title>
-    <style>
-        /* 讓 iframe 滿版顯示，或依需求調整 */
-        iframe {
-            width: 100%;
-            height: 90vh;
-            border: none;
-        }
-    </style>
-</head>
-<body>
-    <iframe src="https://docs.google.com/document/d/e/2PACX-1vQ2J0rOgiEmRRZ8wmO32ulfErf0HIda3eoVj1LqAsKUgRCi94SOD96kMOJK6hYfeCubDatwUPXDVWgG/pub?embedded=true" allowfullscreen></iframe>
-</body>
-</html>
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-900">
+      {/* Header */}
+      <header className="flex justify-between items-center px-8 py-6 border-b">
+        <h1 className="text-2xl font-bold">MyApp</h1>
+        <nav className="space-x-6 hidden md:block">
+          <a href="#features" className="hover:text-blue-600">特色</a>
+          <a href="#faq" className="hover:text-blue-600">常見問題</a>
+        </nav>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700 transition">
+          免費試用
+        </button>
+      </header>
+
+      {/* Hero Section */}
+      <section className="text-center px-6 py-20">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+          開始您的 14 天免費試用
+        </h2>
+        <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          無需信用卡，立即體驗我們的服務，提升您的效率與體驗。
+        </p>
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-2xl shadow-lg hover:bg-blue-700 transition text-lg">
+          立即開始
+        </button>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="px-6 py-20 bg-white">
+        <h3 className="text-3xl font-bold text-center mb-12">為什麼選擇我們？</h3>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="p-6 border rounded-2xl shadow-sm hover:shadow-md transition">
+            <h4 className="text-xl font-semibold mb-3">🚀 快速上手</h4>
+            <p className="text-gray-600">介面直觀，5 分鐘內就能完成設定並開始使用。</p>
+          </div>
+          <div className="p-6 border rounded-2xl shadow-sm hover:shadow-md transition">
+            <h4 className="text-xl font-semibold mb-3">🔒 安全可靠</h4>
+            <p className="text-gray-600">採用最新加密技術，確保您的資料安全無虞。</p>
+          </div>
+          <div className="p-6 border rounded-2xl shadow-sm hover:shadow-md transition">
+            <h4 className="text-xl font-semibold mb-3">📈 提升效率</h4>
+            <p className="text-gray-600">智慧工具幫助您節省時間，專注於真正重要的事。</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="px-6 py-20 bg-gray-50">
+        <h3 className="text-3xl font-bold text-center mb-12">常見問題</h3>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <div>
+            <h4 className="font-semibold">需要綁定信用卡嗎？</h4>
+            <p className="text-gray-600">不需要，免費試用期間完全免費。</p>
+          </div>
+          <div>
+            <h4 className="font-semibold">試用結束後會怎樣？</h4>
+            <p className="text-gray-600">您可以選擇升級為正式方案，或是直接停止使用。</p>
+          </div>
+          <div>
+            <h4 className="font-semibold">我可以隨時取消嗎？</h4>
+            <p className="text-gray-600">當然可以，隨時取消不會產生任何費用。</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="px-6 py-8 border-t text-center text-gray-500">
+        © {new Date().getFullYear()} MyApp. All rights reserved.
+      </footer>
+    </div>
+  );
+}
