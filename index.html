@@ -3,60 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>師大美食 App</title>
+    <meta
+      name="description"
+      content="BusStopToGo — 即時掌握公車動態、站點提醒、地圖導航。讓通勤更準時！"
+    />
+    <meta name="keywords" content="公車, Bus, 即時到站, 通勤, App, BusStopToGo" />
+    <meta name="author" content="DillenHub" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>BusStopToGo | 公車來了嗎？</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <!-- Hero 區塊 -->
-    <section class="flex flex-col items-center justify-center text-center py-24 px-6 bg-gradient-to-b from-orange-100 to-white">
-      <h1 class="text-5xl font-bold mb-6">師大美食新選擇</h1>
-      <p class="text-lg text-gray-700 max-w-2xl mb-8">
-        探索師大周邊最受歡迎的美食餐廳與小吃，無論是課後宵夜還是聚餐首選，
-        一個 App 幫你找到美味！ 🍜🍔🥤
-      </p>
-      <div class="flex gap-4">
-        <a href="#download" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 text-lg rounded-xl">
-          下載 師大美食
-        </a>
-        <a href="#join" class="border border-gray-400 px-6 py-3 text-lg rounded-xl hover:bg-gray-100">
-          加入店家
-        </a>
+
+  <body class="bg-gradient-to-b from-blue-50 to-white text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="App Logo" class="h-10 w-10 rounded-xl" />
+        <span class="font-bold text-xl">BusStopToGo</span>
+      </div>
+      <a
+        href="#download"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
+      >
+        立即下載
+      </a>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-10 py-24 max-w-6xl mx-auto px-6"
+    >
+      <div class="flex-1">
+        <h1 class="text-5xl font-extrabold mb-4 leading-tight">
+          公車來了嗎？<br />
+          <span class="text-blue-600">BusStopToGo</span> 一查就知道！
+        </h1>
+        <p class="text-lg text-gray-600 mb-8">
+          即時顯示到站時間、地圖定位、站牌提醒，讓你的每次通勤都更準時。
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <a
+            href="#download"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg"
+          >
+            下載 App
+          </a>
+          <a
+            href="#features"
+            class="border border-gray-300 px-6 py-3 rounded-xl text-lg hover:bg-gray-50 transition"
+          >
+            看看功能
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <img
+          src="mockup.png"
+          alt="App Mockup"
+          class="w-72 md:w-96 drop-shadow-xl rounded-3xl"
+        />
       </div>
     </section>
 
-    <!-- 精選推薦 -->
-    <section class="py-16 px-6 bg-gray-50">
-      <h2 class="text-3xl font-semibold text-center mb-12">精選推薦</h2>
-      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="shadow-lg bg-white rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?ramen" alt="師大拉麵" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">深夜拉麵</h3>
-            <p class="text-gray-600">人氣宵夜名店，湯頭濃郁，學生最愛。</p>
-          </div>
+    <!-- Features -->
+    <section class="py-20 bg-white" id="features">
+      <h2 class="text-3xl font-bold text-center mb-12">App 特色功能</h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+        <div
+          class="bg-gray-50 rounded-2xl shadow-sm p-8 text-center hover:shadow-md transition"
+        >
+          <img src="icons/clock.svg" class="mx-auto mb-4 w-10" />
+          <h3 class="text-xl font-semibold mb-2">即時到站預報</h3>
+          <p class="text-gray-600">
+            連線公車資料中心，顯示最準確的到站時間。
+          </p>
         </div>
+        <div
+          class="bg-gray-50 rounded-2xl shadow-sm p-8 text-center hover:shadow-md transition"
+        >
+          <img src="icons/map.svg" class="mx-auto mb-4 w-10" />
+          <h3 class="text-xl font-semibold mb-2">站牌地圖導引</h3>
+          <p class="text-gray-600">
+            快速查找最近的站牌、可搭乘的路線與轉乘建議。
+          </p>
+        </div>
+        <div
+          class="bg-gray-50 rounded-2xl shadow-sm p-8 text-center hover:shadow-md transition"
+        >
+          <img src="icons/bell.svg" class="mx-auto mb-4 w-10" />
+          <h3 class="text-xl font-semibold mb-2">智慧提醒</h3>
+          <p class="text-gray-600">設定到站提醒，不再錯過你的公車。</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="shadow-lg bg-white rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?bubble-tea" alt="珍珠奶茶" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">手搖飲料</h3>
-            <p class="text-gray-600">各式手搖飲料，一起排隊喝爆！</p>
-          </div>
-        </div>
+    <!-- Download Section -->
+    <section
+      id="download"
+      class="text-center py-24 bg-blue-600 text-white flex flex-col items-center"
+    >
+      <h2 class="text-3xl font-bold mb-6">立即下載 BusStopToGo</h2>
+      <p class="mb-8 text-lg text-blue-100">你的公車助理，24 小時準時陪伴！</p>
 
-        <div class="shadow-lg bg-white rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?fried-chicken" alt="炸雞" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">酥脆炸雞</h3>
-            <p class="text-gray-600">香氣四溢的炸物攤，週末聚會必備。</p>
-          </div>
-        </div>
+      <div class="flex gap-6 flex-wrap justify-center">
+        <a href="https://play.google.com" target="_blank">
+          <img
+            src="google-play-badge.png"
+            alt="Google Play"
+            class="h-14 hover:opacity-90 transition"
+          />
+        </a>
+        <a href="https://apps.apple.com" target="_blank">
+          <img
+            src="app-store-badge.png"
+            alt="App Store"
+            class="h-14 hover:opacity-90 transition"
+          />
+        </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center text-gray-500">
-      © 2025 師大美食 App — 找到屬於你的師大味道
+    <footer class="text-center text-gray-500 py-8 text-sm">
+      © 2025 BusStopToGo — Made with ❤️ by DillenHub
     </footer>
   </body>
 </html>
