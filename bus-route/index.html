@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧公車路線查詢 (Agent Gradient Mode)</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 使用 Inter 字體以獲得更好的現代感 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            /* 豐富的深色漸層背景：橙紅到深紫 (類似 Zeabur 參考圖) */
+            background: linear-gradient(135deg, #7c2d12 0%, #4c1d95 100%); 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* 讓內容和底部輸入欄位能正確佈局 */
+            align-items: center;
+        }
+        /* 自定義光標動畫 */
+        .typing-cursor {
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        /* 隱藏 textarea 的預設捲軸，由 autoExpand 處理內容 */
+        .agent-textarea {
+            overflow: hidden;
+            height: 48px; /* 初始高度，確保單行顯示 */
+            line-height: 24px; /* 設定行高 */
+        }
+    </style>
+    <!-- 載入 Firebase 模組 -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // IMPORTANT: Firebase setup variables (provided by Canvas environment)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        
+        // Global Firebase instances
+        window.app = null;
+        window.db = null;
+        window.auth = null;
+
+        // Function to initialize Firebase and authenticate
+        async function initializeFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length === 0) {
+                    console.warn("Firebase config is empty. Firestore will not be fully functional.");
+                    return;
+                }
+                
+                // Set Firebase log level to debug for better diagnostics
+                setLogLevel('debug');
+
+                window.app = initializeApp(firebaseConfig);
+                window.db = getFirestore(window.app);
+                window.auth = getAuth(window.app);
+                
+                // Handle authentication
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token.length > 0) {
+                    await signInWithCustomToken(window.auth, __initial_auth_token);
+                    console.log("Signed in with custom token.");
+                } else {
+                    await signInAnonymously(window.auth);
+                    console.log("Signed in anonymously.");
+                }
+
+                // Listen for auth state changes
+                onAuthStateChanged(window.auth, (user) => {
+                    const userIdElement = document.getElementById('user-id-display');
+                    if (user) {
+                        console.log("User authenticated:", user.uid);
+                        userIdElement.textContent = `使用者 ID: ${user.uid}`;
+                    } else {
+                        console.log("No user is signed in.");
+                        userIdElement.textContent = `使用者 ID: N/A (已匿名登入)`;
+                    }
+                });
+                
+            } catch (error) {
+                console.error("Firebase initialization or authentication failed:", error);
+            }
+        }
+
+        window.onload = () => {
+            // Start Firebase initialization on load
+            initializeFirebase();
+            // Start the typing animation
+            window.startTypingAnimation(); 
+        };
+    </script>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- 主內容區塊 (置中) -->
+    <div class="flex-grow flex flex-col items-center justify-center pt-16 pb-32">
+        
+        <!-- 標題和資訊 -->
+        <header class="text-center mb-16">
+            <!-- 標題文字改為超大、高對比白色 -->
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4 drop-shadow-lg">
+                你的 AI 公車路線規劃師
+            </h1>
+            <p class="text-lg text-gray-300 mb-6">透過自然語言對話，取得最佳乘車建議。</p>
+            <p id="user-id-display" class="text-sm text-gray-400 mt-2 p-1 px-3 bg-white/10 rounded-full inline-block">使用者 ID: 載入中...</p>
+        </header>
+
+        <!-- 導引輸入區塊 (Typing Animation Prompt) - 模擬 Agent 介面中的提示 -->
+        <div class="w-full max-w-lg">
+            <h2 class="text-lg font-semibold text-teal-300 mb-3 text-center">💡 Agent 提示：</h2>
+
+            <!-- 模擬打字動畫的提示語句 - 背景為半透明的深色卡片 -->
+            <div class="relative p-6 bg-black/30 border border-purple-500 rounded-xl shadow-2xl transition-all duration-300">
+                <p class="text-sm font-medium text-teal-300 mb-2">示範語句：</p>
+                <div id="typing-output" class="min-h-[2.5rem] text-xl text-gray-100 font-mono whitespace-pre-wrap">
+                    <!-- Typing animation goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 實際 Agent 單一輸入區塊 (固定在底部，模仿聊天機器人) -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 md:p-8 flex justify-center z-40">
+        <div class="w-full max-w-3xl bg-gray-900/90 backdrop-blur-sm rounded-2xl p-2 flex items-end shadow-2xl shadow-black/50 border border-purple-700">
+            
+            <!-- Avatar/Icon (參考 Zeabur 圖片) -->
+            <div class="flex-shrink-0 p-3 self-start">
+                <img src="https://placehold.co/32x32/14b8a6/FFFFFF/png?text=AI" onerror="this.onerror=null;this.src='https://placehold.co/32x32/14b8a6/FFFFFF/png?text=AI'" alt="AI Agent Icon" class="rounded-full">
+            </div>
+
+            <!-- Input Textarea -->
+            <textarea 
+                id="agent-input" 
+                rows="1" 
+                placeholder="詢問公車路線，例如：我想從永豐路口坐公車到師大" 
+                class="agent-textarea flex-grow p-2 bg-transparent text-gray-200 placeholder-gray-500 resize-none focus:outline-none focus:ring-0 text-base"
+                oninput="autoExpand(this)"
+                onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); simulateSearch(); }"
+            ></textarea>
+            
+            <!-- Send Button -->
+            <button onclick="simulateSearch()" class="flex-shrink-0 bg-purple-600 text-white font-semibold py-2 px-6 rounded-xl hover:bg-purple-700 transition duration-200 shadow-md ml-2 disabled:opacity-50" id="send-button">
+                送出
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Typing Animation and Search Logic -->
+    <script>
+        const targetText = '我想從永豐路口坐公車到師大'; // 提示文字
+        const typingSpeed = 100; // 每個字元的毫秒延遲
+        let charIndex = 0;
+        let typingInterval;
+        const outputElement = document.getElementById('typing-output');
+
+        // Helper function for custom non-alert message box (Updated for Dark Mode)
+        function showMessage(title, message) {
+            const container = document.createElement('div');
+            container.className = 'fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50';
+            container.innerHTML = `
+                <div class="bg-gray-800 text-white p-6 rounded-xl shadow-2xl max-w-sm w-full border border-teal-600">
+                    <h3 class="text-xl font-bold mb-3 text-teal-400">${title}</h3>
+                    <p class="text-gray-300 mb-4">${message}</p>
+                    <button onclick="this.closest('.fixed').remove()" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition">
+                        確定
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(container);
+        }
+
+        // Auto-expand textarea function for a cleaner chat-style input
+        function autoExpand(textarea) {
+            textarea.style.height = 'auto'; // Reset height to recalculate
+            textarea.style.height = (textarea.scrollHeight) + 'px'; // Set new height
+        }
+
+        // The typing function
+        function typeCharacter() {
+            if (charIndex < targetText.length) {
+                outputElement.textContent += targetText.charAt(charIndex);
+                charIndex++;
+                // Append the blinking cursor after the current text
+                outputElement.innerHTML += '<span class="typing-cursor text-teal-400">|</span>'; 
+                // Remove the old cursor before the next character is added
+                const cursor = outputElement.querySelector('.typing-cursor');
+                if (cursor && charIndex < targetText.length) {
+                    cursor.remove();
+                }
+            } else {
+                clearInterval(typingInterval);
+                // Keep the final cursor blinking
+                outputElement.innerHTML += '<span class="typing-cursor text-teal-400">|</span>'; 
+            }
+        }
+
+        window.startTypingAnimation = function() {
+            // Reset state
+            charIndex = 0;
+            outputElement.textContent = '';
+            
+            // Start the interval
+            typingInterval = setInterval(typeCharacter, typingSpeed);
+        };
+
+        function simulateSearch() {
+            const inputField = document.getElementById('agent-input');
+            const query = inputField.value.trim();
+
+            if (query === '') {
+                showMessage('提示', '請輸入您的自然語言查詢，例如：「我想從永豐路口坐公車到師大」');
+                return;
+            }
+
+            const message = `已接收您的自然語言查詢：<br><br>「<b>${query}</b>」。<br><br>模擬 Agent 正在解析起點、終點和交通方式...`;
+            showMessage('Agent 正在處理...', message);
+            
+            // Clear input after search
+            inputField.value = '';
+            autoExpand(inputField); // Reset height
+        }
+    </script>
+</body>
+</html>
